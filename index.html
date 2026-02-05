@@ -1,131 +1,223 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Xarola Team - Transforme Seu Corpo</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xarola Team - Transformação Corporal</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
+    
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              xarola: '#D32F2F',
-              xarolaDark: '#8a1c1c',
-              darkbg: '#050505',
-            },
-            fontFamily: {
-              sans: ['Roboto', 'sans-serif'],
-              heading: ['Oswald', 'sans-serif'],
-            },
-            animation: {
-              'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'shiny': 'shiny 3s infinite',
-              'float': 'float 6s ease-in-out infinite',
-            },
-            keyframes: {
-              shiny: {
-                '0%': { left: '-100%' },
-                '100%': { left: '200%' },
-              },
-              float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-10px)' },
-              }
-            },
-            backgroundImage: {
-              'noise': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E')",
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        xarola: '#D32F2F', // Vermelho Sangue
+                        darkbg: '#050505',
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        heading: ['Oswald', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
             }
-          },
-        },
-      };
+        }
     </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-      body {
-        background-color: #050505;
-        color: white;
-        overflow-x: hidden;
-        scroll-behavior: smooth;
-      }
-      
-      /* Premium Glass Definition */
-      .glass-panel {
-        /* Base */
-        background: linear-gradient(145deg, rgba(20, 20, 20, 0.6) 0%, rgba(20, 20, 20, 0.3) 100%);
-        backdrop-filter: blur(24px);
-        -webkit-backdrop-filter: blur(24px);
-        
-        /* 3D Borders (Light Top/Left, Dark Bottom/Right) */
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
-        border-left: 1px solid rgba(255, 255, 255, 0.08);
-        border-right: 1px solid rgba(0, 0, 0, 0.2);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-        
-        /* Shadows */
-        box-shadow: 
-          0 20px 40px rgba(0, 0, 0, 0.6), /* Deep Drop Shadow */
-          inset 0 0 0 1px rgba(255, 255, 255, 0.03); /* Inner Rim */
-      }
+        /* Efeito de Vidro (Glassmorphism) */
+        .glass-panel {
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
+        }
 
-      /* Noise Texture Class to allow 'grain' on surfaces */
-      .bg-noise-texture {
-        position: relative;
-      }
-      .bg-noise-texture::before {
-        content: "";
-        position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%221%22/%3E%3C/svg%3E');
-        opacity: 0.03;
-        mix-blend-mode: overlay;
-        pointer-events: none;
-        z-index: 0;
-      }
+        /* Texto com brilho */
+        .text-glow {
+            text-shadow: 0 0 20px rgba(211, 47, 47, 0.6);
+        }
 
-      .text-shadow {
-        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
-      }
-      
-      .text-glow {
-        text-shadow: 0 0 20px rgba(211, 47, 47, 0.5);
-      }
+        /* Scrollbar Personalizada */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #D32F2F; }
 
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 6px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #050505;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #333;
-        border-radius: 10px;
-        border: 1px solid #000;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #D32F2F;
-      }
+        html { scroll-behavior: smooth; }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
 </head>
-  <body>
-    <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
+<body class="bg-darkbg text-white overflow-x-hidden relative">
+
+    <video autoplay loop muted playsinline 
+        class="fixed top-0 left-0 w-full h-full object-cover -z-50 opacity-60">
+        <source src="public/background-video.mp4" type="video/mp4">
+        <div class="w-full h-full bg-black"></div>
+    </video>
+
+    <div class="fixed inset-0 bg-gradient-to-b from-black/90 via-black/40 to-black/90 -z-40 pointer-events-none"></div>
+
+    <div class="fixed top-4 left-1/2 -translate-x-1/2 z-50 animate-float">
+        <div class="w-24 h-24 md:w-32 md:h-32 rounded-full glass-panel flex items-center justify-center p-4 border border-white/10 shadow-[0_0_30px_rgba(211,47,47,0.2)]">
+            <img src="public/logo-xarola.png" alt="Xarola Team" class="w-full h-full object-contain">
+        </div>
+    </div>
+
+    <main class="relative z-10 pb-32">
+
+        <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-32">
+            <h1 class="text-6xl md:text-9xl font-heading font-bold uppercase leading-none mb-6">
+                Transforme<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-xarola to-red-800 text-glow">Seu Corpo</span>
+            </h1>
+            
+            <p class="text-xl text-gray-300 font-sans max-w-2xl mx-auto mb-10 drop-shadow-md">
+                Consultoria de elite para quem busca resultados brutais. Sem atalhos.
+            </p>
+
+            <a href="https://wa.me/5555981461267" target="_blank" 
+               class="bg-xarola hover:bg-red-700 text-white font-heading font-bold text-xl px-10 py-5 rounded-lg shadow-[0_0_20px_rgba(211,47,47,0.5)] transition-all hover:scale-105 animate-pulse-slow flex items-center gap-3">
+                <i class="fab fa-whatsapp text-2xl"></i>
+                QUERO ENTRAR PARA O TEAM
+            </a>
+            
+            <div class="mt-12 text-gray-500 text-sm animate-bounce">
+                <i class="fas fa-chevron-down text-3xl"></i>
+            </div>
+        </section>
+
+        <section class="max-w-5xl mx-auto px-4 mb-24">
+            <div class="glass-panel rounded-2xl p-8 md:p-12">
+                <h2 class="text-4xl font-heading font-bold text-xarola mb-8 uppercase border-l-4 border-xarola pl-4">
+                    Consultoria Online
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-lg transition">
+                        <i class="fas fa-mobile-alt text-xarola text-2xl"></i>
+                        <div>
+                            <h3 class="font-bold text-lg">App de Treino Exclusivo</h3>
+                            <p class="text-sm text-gray-400">Treino na palma da mão com vídeos.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-lg transition">
+                        <i class="fas fa-utensils text-xarola text-2xl"></i>
+                        <div>
+                            <h3 class="font-bold text-lg">Plano Alimentar</h3>
+                            <p class="text-sm text-gray-400">Calculado para seu objetivo.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-lg transition">
+                        <i class="fas fa-dumbbell text-xarola text-2xl"></i>
+                        <div>
+                            <h3 class="font-bold text-lg">Treinos Personalizados</h3>
+                            <p class="text-sm text-gray-400">Periodização inteligente.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-lg transition">
+                        <i class="fas fa-users text-xarola text-2xl"></i>
+                        <div>
+                            <h3 class="font-bold text-lg">Grupo VIP</h3>
+                            <p class="text-sm text-gray-400">Comunidade de elite.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-6xl mx-auto px-4 mb-24">
+            <h2 class="text-center text-5xl font-heading font-bold text-white mb-16 uppercase">
+                Resultados <span class="text-xarola">Reais</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-2 rounded-xl group hover:scale-105 transition duration-500">
+                    <div class="relative overflow-hidden rounded-lg aspect-square">
+                        <img src="public/before-after-1.png" alt="Antes e Depois" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="text-xarola font-bold text-xl uppercase border border-xarola px-4 py-2">Evolução</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-panel p-2 rounded-xl group hover:scale-105 transition duration-500">
+                    <div class="relative overflow-hidden rounded-lg aspect-square">
+                        <img src="public/before-after-2.png" alt="Antes e Depois" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="text-xarola font-bold text-xl uppercase border border-xarola px-4 py-2">Evolução</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-panel p-2 rounded-xl group hover:scale-105 transition duration-500">
+                    <div class="relative overflow-hidden rounded-lg aspect-square">
+                        <img src="public/before-after-3.png" alt="Antes e Depois" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="text-xarola font-bold text-xl uppercase border border-xarola px-4 py-2">Evolução</span>
+                        </div>
+                    </div>
+                </div>
+                 <div class="glass-panel p-2 rounded-xl group hover:scale-105 transition duration-500">
+                    <div class="relative overflow-hidden rounded-lg aspect-square">
+                        <img src="public/before-after-4.png" alt="Antes e Depois" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="text-xarola font-bold text-xl uppercase border border-xarola px-4 py-2">Evolução</span>
+                        </div>
+                    </div>
+                </div>
+                 <div class="glass-panel p-2 rounded-xl group hover:scale-105 transition duration-500">
+                    <div class="relative overflow-hidden rounded-lg aspect-square">
+                        <img src="public/before-after-5.png" alt="Antes e Depois" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                            <span class="text-xarola font-bold text-xl uppercase border border-xarola px-4 py-2">Evolução</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://wa.me/5555981461267" target="_blank" class="inline-block border-b-2 border-xarola text-white pb-1 hover:text-xarola transition">
+                    VER MAIS RESULTADOS NO INSTAGRAM
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="relative z-10 bg-black py-8 text-center border-t border-white/10">
+        <p class="text-white font-heading text-2xl mb-2">XAROLA <span class="text-xarola">TEAM</span></p>
+        <p class="text-gray-600 text-xs">© 2026 Todos os direitos reservados.</p>
+    </footer>
+
+    <div id="sticky-cta" class="fixed bottom-4 left-4 right-4 z-50 transform translate-y-24 transition-transform duration-500">
+        <a href="https://wa.me/5555981461267" target="_blank" 
+           class="block w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 rounded-full text-center shadow-lg uppercase tracking-wider">
+            <i class="fab fa-whatsapp mr-2"></i> Chamar no WhatsApp
+        </a>
+    </div>
+
+    <script>
+        const stickyCta = document.getElementById('sticky-cta');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                stickyCta.classList.remove('translate-y-24');
+            } else {
+                stickyCta.classList.add('translate-y-24');
+            }
+        });
+    </script>
 </body>
 </html>
