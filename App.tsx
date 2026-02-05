@@ -5,7 +5,7 @@ import { Transformations } from './components/Transformations';
 import { Methodology } from './components/Methodology';
 import { FloatingCTA } from './components/FloatingCTA';
 import { Navbar } from './components/Navbar';
-import { ParticleBackground } from './components/ParticleBackground';
+import { ParticleBackground } from './public/background-video.mp4';
 
 const App: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
