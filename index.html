@@ -6,13 +6,15 @@
     <title>Xarola Team - Transformação Corporal</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        xarola: '#D32F2F', // Vermelho Sangue
+                        xarola: '#D32F2F', 
                         darkbg: '#050505',
                     },
                     fontFamily: {
@@ -34,11 +36,7 @@
         }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        /* Efeito de Vidro (Glassmorphism) */
         .glass-panel {
             background: rgba(20, 20, 20, 0.6);
             backdrop-filter: blur(16px);
@@ -47,22 +45,15 @@
             border-left: 1px solid rgba(255, 255, 255, 0.05);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
         }
-
-        /* Texto com brilho */
-        .text-glow {
-            text-shadow: 0 0 20px rgba(211, 47, 47, 0.6);
-        }
-
-        /* Scrollbar Personalizada */
+        .text-glow { text-shadow: 0 0 20px rgba(211, 47, 47, 0.6); }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #050505; }
         ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #D32F2F; }
-
         html { scroll-behavior: smooth; }
     </style>
 </head>
-<body class="bg-darkbg text-white overflow-x-hidden relative">
+<body class="bg-darkbg text-white overflow-x-hidden relative font-sans">
 
     <video autoplay loop muted playsinline 
         class="fixed top-0 left-0 w-full h-full object-cover -z-50 opacity-60">
@@ -70,23 +61,38 @@
         <div class="w-full h-full bg-black"></div>
     </video>
 
-   <div class="fixed inset-0 bg-black/50 backdrop-blur-md -z-40 pointer-events-none"></div>
+    <div class="fixed inset-0 bg-black/60 backdrop-blur-sm -z-40 pointer-events-none"></div>
+
+    <nav class="fixed top-0 left-0 right-0 z-40 py-6 px-4 md:px-8 flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent">
+        <div class="hidden md:block w-24"></div> <div class="hidden md:flex items-center gap-8 ml-auto">
+            <a href="#hero" class="text-sm font-bold tracking-widest text-gray-300 hover:text-xarola transition font-heading">INÍCIO</a>
+            <a href="#services" class="text-sm font-bold tracking-widest text-gray-300 hover:text-xarola transition font-heading">O QUE ENTREGO</a>
+            <a href="#methodology" class="text-sm font-bold tracking-widest text-gray-300 hover:text-xarola transition font-heading">METODOLOGIA</a>
+            <a href="#results" class="text-sm font-bold tracking-widest text-gray-300 hover:text-xarola transition font-heading">RESULTADOS</a>
+            
+            <a href="https://wa.me/5555981461267" target="_blank" 
+               class="bg-white/10 hover:bg-xarola text-white px-4 py-2 rounded border border-white/20 transition text-xs font-bold uppercase tracking-wider">
+               Entrar
+            </a>
+        </div>
+    </nav>
 
     <div class="fixed top-4 left-0 w-full flex justify-center z-50 animate-float pointer-events-none">
-    <div class="w-24 h-24 md:w-32 md:h-32 rounded-full glass-panel flex items-center justify-center p-4 border border-white/10 shadow-[0_0_30px_rgba(211,47,47,0.2)] pointer-events-auto transition-transform hover:scale-110">
-        <img src="midia/logo-xarola.png" alt="Xarola Team" class="w-full h-full object-contain object-center">
+        <div class="w-24 h-24 md:w-32 md:h-32 rounded-full glass-panel flex items-center justify-center p-4 border border-white/10 shadow-[0_0_30px_rgba(211,47,47,0.2)] pointer-events-auto transition-transform hover:scale-110">
+            <img src="midia/logo-xarola.png" alt="Xarola Team" class="w-full h-full object-contain object-center">
+        </div>
     </div>
-</div>
+
     <main class="relative z-10 pb-32">
 
-        <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-32">
+        <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-32">
             <h1 class="text-6xl md:text-9xl font-heading font-bold uppercase leading-none mb-6">
                 Transforme<br>
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-xarola to-red-800 text-glow">Seu Corpo</span>
             </h1>
             
             <p class="text-xl text-gray-300 font-sans max-w-2xl mx-auto mb-10 drop-shadow-md">
-                Consultoria de elite para quem busca resultados brutais. Sem atalhos.
+                Consultoria de elite para quem busca resultados brutais. Sem atalhos, apenas a verdade do bodybuilding aplicada a você.
             </p>
 
             <a href="https://wa.me/5555981461267" target="_blank" 
@@ -95,115 +101,194 @@
                 QUERO ENTRAR PARA O TEAM
             </a>
             
-            <div class="mt-12 text-gray-500 text-sm animate-bounce">
+            <div class="mt-16 text-gray-500 text-sm animate-bounce">
                 <i class="fas fa-chevron-down text-3xl"></i>
             </div>
         </section>
 
-        <section class="max-w-5xl mx-auto px-4 mb-24">
-            <div class="glass-panel rounded-2xl p-8 md:p-12">
-                <h2 class="text-4xl font-heading font-bold text-xarola mb-8 uppercase border-l-4 border-xarola pl-4">
-                    Consultoria Online
-                </h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-lg transition">
-                        <i class="fas fa-mobile-alt text-xarola text-2xl"></i>
-                        <div>
-                            <h3 class="font-bold text-lg">App de Treino Exclusivo</h3>
-                            <p class="text-sm text-gray-400">Treino na palma da mão com vídeos.</p>
-                        </div>
+        <section id="services" class="max-w-6xl mx-auto px-4 mb-32 pt-10">
+            <div class="glass-panel rounded-2xl p-0 overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-5 divide-y md:divide-y-0 md:divide-x divide-white/10">
+                    
+                    <div class="md:col-span-2 p-10 flex flex-col justify-center bg-black/40">
+                        <h2 class="text-4xl md:text-5xl font-heading font-bold text-white uppercase leading-none mb-4 tracking-tighter">
+                            O Que Você <br/><span class="text-xarola">Recebe</span>
+                        </h2>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Ao entrar para o time, você acessa um ecossistema completo focado no seu resultado estético e saúde.
+                        </p>
                     </div>
-                    <div class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-lg transition">
-                        <i class="fas fa-utensils text-xarola text-2xl"></i>
-                        <div>
-                            <h3 class="font-bold text-lg">Plano Alimentar</h3>
-                            <p class="text-sm text-gray-400">Calculado para seu objetivo.</p>
+
+                    <div class="md:col-span-3 bg-black/20 p-6 flex flex-col justify-center gap-4">
+                        <div class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-lg transition border-b border-white/5 last:border-0">
+                            <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-xarola"><i class="fas fa-mobile-alt text-xl"></i></div>
+                            <div>
+                                <h3 class="font-bold text-lg font-heading uppercase">App de Treino Exclusivo</h3>
+                                <p class="text-sm text-gray-400">Treino na palma da mão com vídeos explicativos.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-lg transition">
-                        <i class="fas fa-dumbbell text-xarola text-2xl"></i>
-                        <div>
-                            <h3 class="font-bold text-lg">Treinos Personalizados</h3>
-                            <p class="text-sm text-gray-400">Periodização inteligente.</p>
+                        <div class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-lg transition border-b border-white/5 last:border-0">
+                            <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-xarola"><i class="fas fa-utensils text-xl"></i></div>
+                            <div>
+                                <h3 class="font-bold text-lg font-heading uppercase">Plano Alimentar</h3>
+                                <p class="text-sm text-gray-400">Macros calculados para o seu objetivo real.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-lg transition">
-                        <i class="fas fa-users text-xarola text-2xl"></i>
-                        <div>
-                            <h3 class="font-bold text-lg">Grupo VIP</h3>
-                            <p class="text-sm text-gray-400">Comunidade de elite.</p>
+                        <div class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-lg transition border-b border-white/5 last:border-0">
+                            <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-xarola"><i class="fas fa-dumbbell text-xl"></i></div>
+                            <div>
+                                <h3 class="font-bold text-lg font-heading uppercase">Treinos Periodizados</h3>
+                                <p class="text-sm text-gray-400">Fichas que mudam conforme sua evolução.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-lg transition border-b border-white/5 last:border-0">
+                            <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-xarola"><i class="fas fa-users text-xl"></i></div>
+                            <div>
+                                <h3 class="font-bold text-lg font-heading uppercase">Grupo VIP</h3>
+                                <p class="text-sm text-gray-400">Acesso à comunidade de membros de elite.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-lg transition border-b border-white/5 last:border-0">
+                            <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-xarola"><i class="fas fa-tags text-xl"></i></div>
+                            <div>
+                                <h3 class="font-bold text-lg font-heading uppercase">Clube de Vantagens</h3>
+                                <p class="text-sm text-gray-400">Descontos em suplementos e parceiros.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="max-w-6xl mx-auto px-4 mb-24">
-            <h2 class="text-center text-5xl font-heading font-bold text-white mb-16 uppercase">
-                Resultados <span class="text-xarola">Reais</span>
-            </h2>
+        <section id="methodology" class="max-w-6xl mx-auto px-4 mb-32">
+            <div class="glass-panel p-8 md:p-12 rounded-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-xarola/10 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+                    <div class="space-y-8">
+                        <div>
+                            <span class="text-xarola font-bold tracking-widest uppercase text-sm">Como Funciona</span>
+                            <h2 class="text-4xl md:text-5xl font-heading font-bold uppercase text-white mt-2">
+                                Metodologia <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-xarola to-red-600">Xarola Team</span>
+                            </h2>
+                        </div>
+                        <p class="text-gray-300 text-lg leading-relaxed border-l-2 border-white/10 pl-4">
+                            Não somos apenas mais uma consultoria online. Somos uma fábrica de resultados. Nossa metodologia combina ciência esportiva avançada com a experiência prática de quem vive o bodybuilding.
+                        </p>
+                        <a href="https://wa.me/5555981461267" target="_blank" class="inline-block bg-white/10 hover:bg-xarola text-white font-bold py-3 px-8 rounded border border-white/10 transition uppercase tracking-wide">
+                            Quero mudar de vida
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-black/40 p-6 rounded-xl border border-white/5 hover:border-xarola/30 transition group">
+                            <i class="fas fa-crosshairs text-3xl text-xarola mb-4 group-hover:scale-110 transition-transform block"></i>
+                            <h3 class="font-heading font-bold text-lg mb-2">Treino Personalizado</h3>
+                            <p class="text-sm text-gray-400">Periodização montada para sua biomecânica.</p>
+                        </div>
+                        <div class="bg-black/40 p-6 rounded-xl border border-white/5 hover:border-xarola/30 transition group">
+                            <i class="fas fa-chart-line text-3xl text-xarola mb-4 group-hover:scale-110 transition-transform block"></i>
+                            <h3 class="font-heading font-bold text-lg mb-2">Dieta Flexível</h3>
+                            <p class="text-sm text-gray-400">Protocolos que se adaptam à sua rotina.</p>
+                        </div>
+                        <div class="bg-black/40 p-6 rounded-xl border border-white/5 hover:border-xarola/30 transition group">
+                            <i class="fas fa-headset text-3xl text-xarola mb-4 group-hover:scale-110 transition-transform block"></i>
+                            <h3 class="font-heading font-bold text-lg mb-2">Suporte 24/7</h3>
+                            <p class="text-sm text-gray-400">Acesso direto pelo WhatsApp para ajustes.</p>
+                        </div>
+                        <div class="bg-black/40 p-6 rounded-xl border border-white/5 hover:border-xarola/30 transition group">
+                            <i class="fas fa-trophy text-3xl text-xarola mb-4 group-hover:scale-110 transition-transform block"></i>
+                            <h3 class="font-heading font-bold text-lg mb-2">Alta Performance</h3>
+                            <p class="text-sm text-gray-400">Estratégias de atletas adaptadas para você.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="results" class="max-w-6xl mx-auto px-4 mb-24">
+            <div class="text-center mb-16">
+                <span class="text-xarola font-bold tracking-[0.5em] text-sm uppercase block mb-2">Nossos Alunos</span>
+                <h2 class="text-5xl font-heading font-bold text-white uppercase">
+                    Resultados <span class="text-xarola">Reais</span>
+                </h2>
+            </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="glass-panel p-2 rounded-xl group hover:scale-105 transition duration-500">
                     <div class="relative overflow-hidden rounded-lg aspect-square">
-                        <img src="midia/before-after-1.png" alt="Antes e Depois" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                            <span class="text-xarola font-bold text-xl uppercase border border-xarola px-4 py-2">Evolução</span>
+                        <img src="midia/before-after-1.png" alt="Evolução" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center p-4">
+                            <span class="text-xarola font-heading font-bold text-2xl mb-1">EVOLUÇÃO</span>
+                            <span class="text-white text-sm">Protocolo Xarola Team</span>
                         </div>
                     </div>
                 </div>
                 <div class="glass-panel p-2 rounded-xl group hover:scale-105 transition duration-500">
                     <div class="relative overflow-hidden rounded-lg aspect-square">
-                        <img src="midia/before-after-2.png" alt="Antes e Depois" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                            <span class="text-xarola font-bold text-xl uppercase border border-xarola px-4 py-2">Evolução</span>
+                        <img src="midia/before-after-2.png" alt="Evolução" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center p-4">
+                            <span class="text-xarola font-heading font-bold text-2xl mb-1">EVOLUÇÃO</span>
+                            <span class="text-white text-sm">Protocolo Xarola Team</span>
                         </div>
                     </div>
                 </div>
                 <div class="glass-panel p-2 rounded-xl group hover:scale-105 transition duration-500">
                     <div class="relative overflow-hidden rounded-lg aspect-square">
-                        <img src="midia/before-after-3.png" alt="Antes e Depois" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                            <span class="text-xarola font-bold text-xl uppercase border border-xarola px-4 py-2">Evolução</span>
+                        <img src="midia/before-after-3.png" alt="Evolução" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center p-4">
+                            <span class="text-xarola font-heading font-bold text-2xl mb-1">EVOLUÇÃO</span>
+                            <span class="text-white text-sm">Protocolo Xarola Team</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-panel p-2 rounded-xl group hover:scale-105 transition duration-500">
+                    <div class="relative overflow-hidden rounded-lg aspect-square">
+                        <img src="midia/before-after-4.png" alt="Evolução" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center p-4">
+                            <span class="text-xarola font-heading font-bold text-2xl mb-1">EVOLUÇÃO</span>
+                            <span class="text-white text-sm">Protocolo Xarola Team</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-panel p-2 rounded-xl group hover:scale-105 transition duration-500">
+                    <div class="relative overflow-hidden rounded-lg aspect-square">
+                        <img src="midia/before-after-5.png" alt="Evolução" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center p-4">
+                            <span class="text-xarola font-heading font-bold text-2xl mb-1">EVOLUÇÃO</span>
+                            <span class="text-white text-sm">Protocolo Xarola Team</span>
                         </div>
                     </div>
                 </div>
                  <div class="glass-panel p-2 rounded-xl group hover:scale-105 transition duration-500">
                     <div class="relative overflow-hidden rounded-lg aspect-square">
-                        <img src="midia/before-after-4.png" alt="Antes e Depois" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                            <span class="text-xarola font-bold text-xl uppercase border border-xarola px-4 py-2">Evolução</span>
-                        </div>
-                    </div>
-                </div>
-                 <div class="glass-panel p-2 rounded-xl group hover:scale-105 transition duration-500">
-                    <div class="relative overflow-hidden rounded-lg aspect-square">
-                        <img src="midia/before-after-5.png" alt="Antes e Depois" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                            <span class="text-xarola font-bold text-xl uppercase border border-xarola px-4 py-2">Evolução</span>
+                        <img src="midia/before-after-1.png" alt="Evolução" class="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition">
+                        <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center p-4">
+                            <span class="text-xarola font-heading font-bold text-2xl mb-1">VOCÊ?</span>
+                            <span class="text-white text-sm">Próximo resultado</span>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="text-center mt-12">
-                <a href="https://wa.me/5555981461267" target="_blank" class="inline-block border-b-2 border-xarola text-white pb-1 hover:text-xarola transition">
-                    VER MAIS RESULTADOS NO INSTAGRAM
+                <a href="https://wa.me/5555981461267" target="_blank" class="inline-block border-b-2 border-xarola text-white pb-1 hover:text-xarola transition uppercase font-bold text-sm tracking-widest">
+                    Ver mais resultados no Instagram
                 </a>
             </div>
         </section>
 
     </main>
 
-    <footer class="relative z-10 bg-black py-8 text-center border-t border-white/10">
-        <p class="text-white font-heading text-2xl mb-2">XAROLA <span class="text-xarola">TEAM</span></p>
-        <p class="text-gray-600 text-xs">© 2026 Todos os direitos reservados.</p>
+    <footer class="relative z-10 bg-black py-10 text-center border-t border-white/10">
+        <p class="text-white font-heading text-3xl mb-2">XAROLA <span class="text-xarola">TEAM</span></p>
+        <p class="text-gray-500 font-sans text-sm max-w-md mx-auto mb-6">Transformando vidas através do esporte e da disciplina. Junte-se à elite.</p>
+        <p class="text-gray-700 text-xs">© 2026 Todos os direitos reservados.</p>
     </footer>
 
     <div id="sticky-cta" class="fixed bottom-4 left-4 right-4 z-50 transform translate-y-24 transition-transform duration-500">
         <a href="https://wa.me/5555981461267" target="_blank" 
-           class="block w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 rounded-full text-center shadow-lg uppercase tracking-wider">
+           class="block w-full max-w-md mx-auto bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 rounded-full text-center shadow-[0_0_20px_rgba(37,211,102,0.4)] uppercase tracking-wider">
             <i class="fab fa-whatsapp mr-2"></i> Chamar no WhatsApp
         </a>
     </div>
@@ -211,7 +296,7 @@
     <script>
         const stickyCta = document.getElementById('sticky-cta');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
+            if (window.scrollY > 500) {
                 stickyCta.classList.remove('translate-y-24');
             } else {
                 stickyCta.classList.add('translate-y-24');
