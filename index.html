@@ -58,7 +58,7 @@
 <body class="bg-darkbg text-white relative font-sans">
 
     <div class="fixed top-0 left-0 w-full h-full -z-50 overflow-hidden bg-black">
-        <video id="bg-video" autoplay loop muted="muted" playsinline
+        <video id="bg-video" autoplay loop muted="muted" playsinline 
             class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover opacity-60">
             <source src="midia/background-video.mp4" type="video/mp4">
         </video>
@@ -502,16 +502,6 @@
     </div>
 
     <script>
-        // Script de segurança para tentar dar play se o autoplay nativo falhar
-        document.addEventListener('DOMContentLoaded', function() {
-            var video = document.getElementById('bg-video');
-            if(video) {
-                video.play().catch(function(error) {
-                    console.log("Autoplay bloqueado pelo navegador:", error);
-                });
-            }
-        });
-
         const stickyCta = document.getElementById('sticky-cta');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 500) {
